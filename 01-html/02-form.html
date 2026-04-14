@@ -4,11 +4,60 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Exercise 02 - Form</title>
+    <title>Roth IRA Calculator</title>
   </head>
   <body>
     <main>
-      <!-- Add your code here -->
+      <h2>Roth IRA Calculator</h2>
+      <form action="" method="GET">
+        <label for="balance">Balance ($)</label><br />
+        <input type="text" id="balance" name="balance" /><br /><br />
+
+        <label for="annual-contribution">Annual contribution (4)</label><br />
+        <input
+          type="text"
+          id="annual-contribution"
+          name="annual-contribution"
+        /><br /><br />
+
+        <label>Maximize contributions?</label><br />
+        <input type="radio" id="yes" name="maximize" value="yes" />
+        <label for="yes">Yes</label>
+        <input type="radio" id="no" name="maximize" value="no" />
+        <label for="no">No</label><br /><br />
+
+        <label for="expected-return">Expected rate of return (5)</label><br />
+        <input
+          type="number"
+          id="expected-return"
+          name="expected-return"
+        /><br /><br />
+
+        <label for="current-age">Current age</label><br />
+        <input type="number" id="current-age" name="current-age" /><br /><br />
+
+        <label for="retirement-age">Retirement age</label><br />
+        <input
+          type="number"
+          id="retirement-age"
+          name="retirement-age"
+        /><br /><br />
+
+        <label for="marginal-tax-rate">Marginal tax rate (%)</label><br />
+        <input
+          type="number"
+          id="marginal-tax-rate"
+          name="marginal-tax-rate"
+        /><br /><br />
+
+        <button type="submit">Calculate</button>
+        <button type="reset">Reset</button>
+      </form>
+
+      <p>
+        This exercise is a simplified version of the Roth IRA Calculator at
+        <a href="https://www.calculator.net">Calculator.net</a>
+      </p>
     </main>
   </body>
 </html>
