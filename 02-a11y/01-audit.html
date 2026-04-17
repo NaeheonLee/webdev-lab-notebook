@@ -1,3 +1,26 @@
+<!--
+1. 9 Missing Form Labels
+None of the 9 <input> fields 
+(Name, Address, City, Zip, Visa, MasterCard, Amex, CC Number, CVV) 
+had properly associated labels, meaning screen readers 
+would not be able to identify what information belongs in each field.
+
+2. Missing first level heading
+The page doesn't have an <h1> tag. 
+Screen reader users rely on headings to understand what the page is about.
+
+3. No page regions
+The form is just floating inside the <body>. 
+Accessibility guidelines recommend wrapping primary content 
+inside a landmark region like a <main> tag so users can easily jump to it.
+
+4. Form missing submit button
+The original code used <input type="button" value="Submit" />. 
+While it looks like a submit button, type="button" actually just creates a generic,
+dead button that requires JavaScript to work. 
+A proper form needs an actual submit mechanism.
+-->
+
 <!doctype html>
 <html lang="en">
   <head>
