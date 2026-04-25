@@ -1,1 +1,121 @@
-/* Add your CSS code here  */
+:root {
+  --ice-blue-juvie: #8fbcd4;
+  --gothic-gray-blue: #6f8796;
+  --dark-slate-infinity: #1f2a33;
+}
+
+/* General text font */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+}
+
+/* Headings font */
+h1,
+h2 {
+  font-family: "Cinzel", serif; /* Custom font applied ONLY to headings */
+}
+
+h1 {
+  color: var(--gothic-gray-blue);
+  margin-top: 0;
+}
+
+h2 {
+  color: black;
+  border-bottom: 1px solid lightgrey;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+nav {
+  background-color: var(--dark-slate-infinity);
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  display: block;
+  padding: 15px 25px;
+  text-decoration: none;
+  /* This ensures the navbar uses the exact same font as your headings */
+  font-family: "Cinzel", serif;
+  color: var(--ice-blue-juvie);
+  font-weight: 600;
+}
+
+nav a:hover {
+  background-color: var(--ice-blue-juvie);
+  color: var(--dark-slate-infinity);
+}
+
+/* Headings */
+h1 {
+  font-family: "Cinzel", serif;
+  color: var(--gothic-gray-blue);
+}
+
+h2 {
+  font-family: "Cinzel", serif;
+  color: black; /* Changed to black as requested */
+}
+
+main {
+  padding: 20px;
+}
+
+.gallery {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.gallery img {
+  width: 200px;
+  border: 5px solid transparent;
+  transition: border 0.2s ease;
+}
+
+.gallery img:hover {
+  border: 5px solid var(--ice-blue-juvie);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 10px;
+}
+
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+thead {
+  background-color: #f4f4f4;
+}
+
+tfoot {
+  font-weight: bold;
+  background-color: #eee;
+}
+
+.book-list > li {
+  margin-bottom: 20px; /* Adds space between the main bullet points */
+}
+
+.book-list ol {
+  margin-top: 10px; /* Adds space between "series:" and the first numbered item */
+}
+
+.book-list ol li {
+  margin-bottom: 5px; /* Adds a little breathing room between the numbered items */
+}
