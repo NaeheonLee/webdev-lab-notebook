@@ -38,8 +38,250 @@ h1 {
   margin: 10px;
 }
 
+/* Exercise 01 - Center */
+
+/* 1. Add this to make the container a flexbox and center the box inside it */
+.container {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  min-height: 100vh; /* Makes the container take up the full height of the browser window */
+}
+
+/* 2. Update the existing .box class to center the text inside it */
+.box {
+  width: 200px;
+  height: 100px;
+  padding: 1rem;
+  background: var(--purple);
+  color: var(--light-text-color);
+  font-size: 1.75rem;
+
+  /* Add these lines to center the text vertically and horizontally inside the box */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* (You can keep this from the original code) */
+}
+
 /* Exercise 02 - Flexbox */
+/* 1. Header & Navbar */
+.top-of-page {
+  display: flex;
+  justify-content: space-between; /* Pushes H1 to the left, Nav to the right */
+  align-items: center; /* Vertically centers them so they align nicely */
+  background-color: black;
+  color: white;
+  padding: 15px 40px; /* Adds breathing room on the left and right edges */
+  margin: 0;
+}
+
+/* Nav Flexbox (Right side) */
+.navigation {
+  display: flex;
+  gap: 30px; /* Space between the three links */
+}
+
+/* 2. Nav Link Neon Green Hover Animation */
+.navigation a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding-bottom: 5px; /* Creates space between text and the hover line */
+  border-bottom: 3px solid transparent; /* Invisible line by default */
+  transition:
+    color 0.3s ease,
+    border-bottom 0.3s ease; /* Smooth animation */
+}
+
+.navigation a:hover {
+  color: #39ff14; /* Neon green text */
+  border-bottom: 3px solid #39ff14; /* The neon green bar appears */
+}
+
+/* 3. Main Container Flexbox */
+.main-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px;
+}
+
+/* 4. Individual Game Sections (Smooth Boxes with Black Line) */
+.page-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  text-align: center;
+  background-color: white; /* Makes the inside white like the background */
+  border: 2px solid black; /* Adds the black line around the box */
+  border-radius: 15px; /* Keeps the smooth, rounded edges */
+  padding: 30px;
+}
+
+.page-area figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  margin-top: auto; /* Pushes the image to the bottom so they all align perfectly */
+}
+
+.page-area img {
+  width: 250px;
+  height: auto;
+  border-radius: 10px; /* Adds smooth edges to the images too */
+}
+
+/* Footer / Bottom of page */
+.bottom-of-page {
+  display: flex;
+  justify-content: center; /* Centers the text horizontally */
+  align-items: center; /* Centers the text vertically */
+  background-color: black; /* The black space */
+  color: white; /* Makes the text visible against the black background */
+  padding: 20px;
+  margin: 0;
+}
 
 /* Exercise 03 - CSS Grid */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 5px;
+
+  grid-template-rows: 80px 400px 80px 80px;
+
+  /* The exact map based on your rules */
+  grid-template-areas:
+    "header header header"
+    "item2  item2  item3"
+    "item7  item4  item5"
+    "footer footer footer";
+}
+
+/* Map each HTML item to the name in the template areas above */
+.item1 {
+  grid-area: header;
+}
+.item2 {
+  grid-area: item2;
+}
+.item3 {
+  grid-area: item3;
+}
+.item4 {
+  grid-area: item4;
+}
+.item5 {
+  grid-area: item5;
+}
+
+/* Hide item 6 as it does not exist in the screenshot */
+.item6 {
+  display: none;
+}
+
+.item7 {
+  grid-area: item7;
+}
+.item8 {
+  grid-area: footer;
+}
 
 /* Exercise 04 - CSS Grid Areas */
+/* 1. Assign names to all our grid items */
+.grid-container h1 {
+  grid-area: title;
+}
+.header {
+  grid-area: header;
+}
+.article {
+  grid-area: article;
+}
+.aside {
+  grid-area: aside;
+}
+.section {
+  grid-area: section;
+}
+.footer {
+  grid-area: footer;
+}
+
+/* Apply smooth edges and left-aligned text to the boxes */
+.header,
+.article,
+.aside,
+.section,
+.footer {
+  text-align: left;
+  border-radius: 5px;
+}
+
+/* 2. Mobile Layout (Default - 414px) */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 single column */
+  gap: 15px;
+
+  /* 5 rows */
+  grid-template-rows: auto 80px 300px 300px 80px;
+
+  grid-template-areas:
+    "title"
+    "header"
+    "article"
+    "section"
+    "footer";
+}
+
+/* The aside is the ONLY element hidden on mobile */
+.aside {
+  display: none;
+}
+
+/* 3. Tablet Layout (768px and wider) */
+@media (min-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+
+    /* 5 rows */
+    grid-template-rows: auto 80px 300px 200px 80px;
+
+    grid-template-areas:
+      "title title title"
+      "header header header"
+      "article article aside" /* Article takes 2 parts, Aside takes 1 part */
+      "section section section"
+      "footer footer footer";
+  }
+
+  /* Make the aside visible again on larger screens! */
+  .aside {
+    display: block;
+  }
+}
+
+/* 4. Laptop Layout (1024px and wider) */
+@media (min-width: 1024px) {
+  .grid-container {
+    grid-template-columns: 1fr 2fr 2fr;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+
+    /* 5 rows */
+    grid-template-rows: auto 80px 300px 200px 80px;
+
+    grid-template-areas:
+      "title title title"
+      "header header header"
+      "aside article article" /* Aside moves to the left and is smaller (1 part) */
+      "section section section"
+      "footer footer footer";
+  }
+}
