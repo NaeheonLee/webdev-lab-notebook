@@ -9,6 +9,101 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   color: var(--main-color);
   background-color: var(--bg-color);
+  margin: 0;
 }
 
-/* Add your code here */
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 30px;
+  background-color: var(--pokemon-yellow);
+  color: var(--main-color);
+}
+
+.brand-logo {
+  margin: 0;
+}
+
+#search-input {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 16px;
+}
+
+/* Layout Containers */
+.loading-container {
+  display: flex;
+  flex-direction: column; /* Stacks the text vertically below the GIF */
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  color: var(--main-light-color);
+  font-size: 1.1rem;
+  gap: 10px;
+}
+
+.pokemon-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hidden {
+  display: none !important;
+}
+
+#no-results {
+  text-align: center;
+  color: var(--main-light-color);
+  font-size: 1.2rem;
+  margin-top: 50px;
+}
+
+/* Card Styling */
+.pokemon-card {
+  background-color: var(--main-light-color);
+  border-radius: 0px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.pokemon-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  background-color: var(--pokemon-yellow);
+}
+
+.pokemon-image {
+  width: 100px;
+  height: 100px;
+}
+
+.pokemon-name {
+  text-transform: capitalize;
+  margin: 10px 0;
+  font-size: 1.2rem;
+  color: black;
+}
+
+/* Type Pills */
+.type-pill {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 0px;
+  margin: 3px;
+  font-size: 0.8rem;
+  color: black;
+  text-transform: capitalize;
+}

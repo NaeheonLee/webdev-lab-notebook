@@ -4,13 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JavaScript Exercise 04 - Fetch</title>
+    <link rel="stylesheet" href="04-fetch.css" />
   </head>
   <body>
+    <nav class="navbar">
+      <h1 class="brand-logo">Pokedex</h1>
+      <input type="text" id="search-input" placeholder="Search Pokémon..." />
+    </nav>
     <main>
-      <nav class="navbar">
-        <h1 class="brand-logo">Pokedex</h1>
-      </nav>
-      <!-- Use the loader.gif provided in the images/ folder -->
+      <div id="loading-container" class="loading-container">
+        <img src="loader.gif" alt="Loading spinner" width="60" />
+        <p>Fetching data...</p>
+      </div>
+
+      <div id="pokemon-container" class="pokemon-container"></div>
+
+      <p id="no-results" class="hidden">No Pokémon matched your query.</p>
     </main>
+
+    <script src="04-fetch.js"></script>
   </body>
 </html>
