@@ -25,7 +25,8 @@ const loadingContainer = document.getElementById("loading-container");
 const searchInput = document.getElementById("search-input");
 const noResults = document.getElementById("no-results");
 
-// Global array to store fetched Pokémon so we can search/filter them later
+pokemonContainer.classList.add("pokemon-container");
+
 let allPokemons = [];
 
 const fetchPokemons = async () => {
@@ -34,8 +35,7 @@ const fetchPokemons = async () => {
     const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=25");
     const data = await response.json();
 
-    // 2. The API only gives us names and URLs. We need to fetch each individual URL
-    // to get the images (sprites) and types. Promise.all fetches them all in parallel.
+    // 2. Fetch details in parallel
     const detailedPokemons = await Promise.all(
       data.results.map(async (pokemon) => {
         const res = await fetch(pokemon.url);
@@ -74,7 +74,6 @@ const renderPokemons = (pokemonsList) => {
     card.classList.add("pokemon-card");
 
     const img = document.createElement("img");
-    // Using the default front-facing sprite from the PokéAPI
     img.src = pokemon.sprites.front_default;
     img.alt = pokemon.name;
     img.classList.add("pokemon-image");
@@ -91,15 +90,14 @@ const renderPokemons = (pokemonsList) => {
       const pill = document.createElement("span");
       pill.textContent = typeName;
       pill.classList.add("type-pill");
-      // Assign background color dynamically from the object
       pill.style.backgroundColor = pokemonColors[typeName];
       typesContainer.appendChild(pill);
     });
 
-    // CORRECTED LAYOUT ORDER:
-    card.appendChild(name); // 1. Name goes first (top)
-    card.appendChild(img); // 2. Image goes second (middle)
-    card.appendChild(typesContainer); // 3. Types go last (bottom)
+    // Layout order: Name, Image, Types
+    card.appendChild(name);
+    card.appendChild(img);
+    card.appendChild(typesContainer);
 
     pokemonContainer.appendChild(card);
   });
@@ -109,9 +107,9 @@ const renderPokemons = (pokemonsList) => {
 searchInput.addEventListener("input", (event) => {
   const query = event.target.value.toLowerCase();
 
-  // Filter the global array based on the query starting letter
+  // Optimized to use .includes() for intuitive card filtering
   const filteredPokemons = allPokemons.filter((pokemon) =>
-    pokemon.name.toLowerCase().startsWith(query),
+    pokemon.name.toLowerCase().includes(query),
   );
 
   // Re-render the UI with the filtered list
